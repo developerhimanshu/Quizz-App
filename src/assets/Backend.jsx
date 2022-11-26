@@ -25,7 +25,7 @@ export default function Backend(){
         // })
         setCurrid(e.target.id)
         console.log(e.target)
-        document.getElementById(e.target.id).style.backgroundColor = 'blue'
+        document.getElementById(e.target.id).style.backgroundColor = '#acb8f0'
    }
 
 
