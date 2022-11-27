@@ -1,50 +1,75 @@
 import React from 'react'
 import {nanoid} from 'nanoid'
 export default function Backend(){
-   const [questions, setQuestions] = React.useState([])
-   const [currid, setCurrid] = React.useState("")
-   const [allIds, setAllIds] = React.useState(["op1", "op2", "op3", "op4"])
-//    const [id1, setId1] = React.useState(false)
-//    const [id2, setId2] = React.useState(false)
-//    const [id3, setId3] = React.useState(false)
-//    const [id4, setId4] = React.useState(false)
+    const [questions, setQuestions] = React.useState([])
+    const [ansData, setAnsData] = React.useState([""])
+
+
+    function addElements(arr){   
+        function holdOption(){
+                    
+        } 
    
-    const [options, setOptions] = React.useState([{
-        isClickedThis:false,
-    }])
-  
-   function holdOption(e){
-        // allIds.map(ele=>{
-        //     const currOp = document.getElementById(ele)
-        //     if(currOp.id===e.target.id){
-        //         currOp.style.backgroundColor = 'blue'
-        //     }else{
-        //         currOp.style.backgroundColor = 'white'
-                
-        //     }
-        // })
-        setCurrid(e.target.id)
-        console.log(e.target)
-        document.getElementById(e.target.id).style.backgroundColor = '#acb8f0'
-   }
-
-
-
-    function addElements(arr){    
-        const newArray = arr.map(ele =>{
-           
-        })
         const questions = arr.map(ele =>{
+            let a = nanoid()
+            let b = nanoid()
+            let c = nanoid()
+            let d = nanoid()
+            
             return (
             <div className="questionsStack">
                 <h3>{ele.question}</h3>
                 {/* {console.log(ele.question)} */}
-                <div className="options">
-                    <button className="option1" onClick={holdOption} id = {nanoid()}>{ele.correct_answer}</button>
-                    <button className="option2" onClick={holdOption} id = {nanoid()}>{ele.incorrect_answers[0]}</button>
-                    <button className="option3" onClick={holdOption} id = {nanoid()}>{ele.incorrect_answers[1]}</button>
-                    <button className="option4" onClick={holdOption} id = {nanoid()}>{ele.incorrect_answers[2]}</button>
+             
+                <div >
+                    <form className="options">
+                        <input
+                            type="radio"
+                            
+                            id={a}
+                            name = "answers"
+                            value="optn1"
+                            // className="option"
+                        />
+                        <label htmlFor={a} id={a}><div className='label'>{ele.correct_answer}</div></label>
+
+                        <input
+                        // className="option"
+                            type="radio"
+                            id={b}
+                            name = "answers"
+                            value="optn2"
+                        />
+                        <label htmlFor={b} id={b}><div className = "label">{ele.incorrect_answers[0]}</div></label>
+
+                        <input
+                        // className="option"
+                            type="radio"
+                            id={c}
+                            name = "answers"
+                            value="optn3"
+                        />
+                        <label htmlFor={c} id={c}><div className = "label">{ele.incorrect_answers[1]}</div></label>
+
+                        <input
+                        // className="option"
+                            type="radio"
+                            id={d}
+                            name = "answers"
+                            value="optn4"
+                        />
+                        <label htmlFor={d} id={d}><div className = "label">{ele.incorrect_answers[2]}</div></label>
+                    </form>
+                
                 </div>
+    
+               
+                  {/* <div className="options">
+                    <button className="option1" onClick={holdOption} id = {a}>{ele.correct_answer}</button>
+                    <button className="option2" onClick={holdOption} id = {b}>{ele.incorrect_answers[0]}</button>
+                    <button className="option3" onClick={holdOption} id = {c}>{ele.incorrect_answers[1]}</button>
+                    <button className="option4" onClick={holdOption} id = {d}>{ele.incorrect_answers[2]}</button>
+                </div> */}
                 <hr/>
             </div>
         )})
